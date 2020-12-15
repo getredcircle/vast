@@ -637,3 +637,19 @@ func TestUniversalAdID(t *testing.T) {
 		}
 	}
 }
+
+func TestCategory(t *testing.T) {
+	v, _, _, err := loadFixture("testdata/vast4_universal_ad_id.xml")
+	if !assert.NoError(t, err) {
+		return
+	}
+
+	assert.Equal(t, "4.0", v.Version)
+	if assert.Len(t, v.Ads, 1) {
+		ad := v.Ads[0]
+		assert.Equal(t, "20008", ad.ID)
+		if assert.NotNil(t, ad.InLine) {
+			assert.NotNil(t,ad.InLine.Categories)
+		}
+	}
+}
