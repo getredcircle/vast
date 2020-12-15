@@ -84,7 +84,7 @@ type InLine struct {
 
 type Category struct {
 	Authority string `xml:"authority,attr"`
-	Value string `xml:","`
+	Value string `xml:",cdata"`
 }
 
 // Impression is a URI that directs the video player to a tracking resource file that

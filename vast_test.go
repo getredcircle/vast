@@ -649,7 +649,10 @@ func TestCategory(t *testing.T) {
 		ad := v.Ads[0]
 		assert.Equal(t, "20008", ad.ID)
 		if assert.NotNil(t, ad.InLine) {
-			assert.NotNil(t,ad.InLine.Categories)
+			if assert.NotNil(t,ad.InLine.Categories){
+				assert.Equal(t, "AD CONTENT description category",ad.InLine.Categories[0].Value)
+				assert.Equal(t, "http://www.iabtechlab.com/categoryauthority",ad.InLine.Categories[0].Authority)
+			}
 		}
 	}
 }
