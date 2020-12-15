@@ -50,6 +50,7 @@ type InLine struct {
 	// One or more URIs that directs the video player to a tracking resource file that the
 	// video player should request when the first frame of the ad is displayed
 	Impressions []Impression `xml:"Impression"`
+	Category Category `xml:`
 	// The container for one or more <Creative> elements
 	Creatives []Creative `xml:"Creatives>Creative"`
 	// A string value that provides a longer description of the ad.
@@ -79,6 +80,11 @@ type InLine struct {
 	// XML elements from VAST elements. The following example includes a custom
 	// xml element within the Extensions element.
 	Extensions *[]Extension `xml:"Extensions>Extension,omitempty"`
+}
+
+type Category struct {
+	Authority string `xml:"authority,attr"`
+	Value string `xml:","`
 }
 
 // Impression is a URI that directs the video player to a tracking resource file that
