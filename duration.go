@@ -27,7 +27,7 @@ func (dur *Duration) UnmarshalText(data []byte) (err error) {
 	s := string(data)
 	s = strings.TrimSpace(s)
 
-	// First chek for bogus data.
+	// First check for bogus data.
 	if s == "" || strings.ToLower(s) == "undefined" {
 		*dur = 0
 		return nil
