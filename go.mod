@@ -1,4 +1,4 @@
-module vast
+module github.com/getredcircle/vast
 
 go 1.23.10
 
