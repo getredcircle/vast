@@ -390,6 +390,12 @@ func TestWrapperLinear(t *testing.T) {
 					}
 				}
 			}
+
+			if assert.NotNil(t, wrapper.Pricing) {
+				assert.Equal(t, "cpm", wrapper.Pricing.Model)
+				assert.Equal(t, "usd", wrapper.Pricing.Currency)
+				assert.Equal(t, "1.471509", wrapper.Pricing.Value)
+			}
 		}
 	}
 }
@@ -434,6 +440,12 @@ func TestWrapperNonLinear(t *testing.T) {
 						assert.Equal(t, "http://myTrackingURL/wrapper/nonlinear/creativeView/creativeView", crea2.NonLinearAds.TrackingEvents[0].URI)
 					}
 				}
+			}
+
+			if assert.NotNil(t, wrapper.Pricing) {
+				assert.Equal(t, "cpm", wrapper.Pricing.Model)
+				assert.Equal(t, "usd", wrapper.Pricing.Currency)
+				assert.Equal(t, "1.471509", wrapper.Pricing.Value)
 			}
 		}
 	}
@@ -649,9 +661,9 @@ func TestCategory(t *testing.T) {
 		ad := v.Ads[0]
 		assert.Equal(t, "20008", ad.ID)
 		if assert.NotNil(t, ad.InLine) {
-			if assert.NotNil(t,ad.InLine.Categories){
-				assert.Equal(t, "AD CONTENT description category",ad.InLine.Categories[0].Value)
-				assert.Equal(t, "http://www.iabtechlab.com/categoryauthority",ad.InLine.Categories[0].Authority)
+			if assert.NotNil(t, ad.InLine.Categories) {
+				assert.Equal(t, "AD CONTENT description category", ad.InLine.Categories[0].Value)
+				assert.Equal(t, "http://www.iabtechlab.com/categoryauthority", ad.InLine.Categories[0].Authority)
 			}
 		}
 	}
