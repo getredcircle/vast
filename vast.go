@@ -50,7 +50,7 @@ type InLine struct {
 	// One or more URIs that directs the video player to a tracking resource file that the
 	// video player should request when the first frame of the ad is displayed
 	Impressions []Impression `xml:"Impression"`
-	Categories []Category `xml:"Category"`
+	Categories  []Category   `xml:"Category"`
 	// The container for one or more <Creative> elements
 	Creatives []Creative `xml:"Creatives>Creative"`
 	// A string value that provides a longer description of the ad.
@@ -84,7 +84,7 @@ type InLine struct {
 
 type Category struct {
 	Authority string `xml:"authority,attr"`
-	Value string `xml:",cdata"`
+	Value     string `xml:",cdata"`
 }
 
 // Impression is a URI that directs the video player to a tracking resource file that
@@ -134,6 +134,10 @@ type Wrapper struct {
 	// XML elements from VAST elements. The following example includes a custom
 	// xml element within the Extensions element.
 	Extensions []Extension `xml:"Extensions>Extension,omitempty"`
+	// Pricing provides a value that represents a price that can be used by real-time
+	// bidding (RTB) systems. VAST is not designed to handle RTB since other methods
+	// exist,  but this element is offered for custom solutions if needed.
+	Pricing *Pricing `xml:",omitempty"`
 
 	FallbackOnNoAd           *bool `xml:"fallbackOnNoAd,attr,omitempty"`
 	AllowMultipleAds         *bool `xml:"allowMultipleAds,attr,omitempty"`

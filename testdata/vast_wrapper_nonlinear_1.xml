@@ -25,6 +25,7 @@
 			</NonLinearAds>
 		</Creative>
 	</Creatives>
+	<Pricing model="cpm" currency="usd">1.471509</Pricing>
   </Wrapper>
   </Ad>
 </VAST>
